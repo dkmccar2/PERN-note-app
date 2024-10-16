@@ -19,7 +19,9 @@ const port = process.env.PORT;
 
 app.use(cors(corsOptions)); //middleware
 app.use(express.json());
-
+app.get("/", async (req, res) => {
+  res.send("Server Running");
+});
 app.get("/getnotes", async (req, res) => {
   console.log("<------------------------>");
   console.log("Get route activated");
