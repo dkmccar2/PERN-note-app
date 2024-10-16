@@ -9,6 +9,7 @@ env.config();
 //const pool = require("./database.js");
 const corsOptions = {
   origin: "http://localhost:3000",
+  methods: ["POST", "GET", "DELETE"],
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
 };
