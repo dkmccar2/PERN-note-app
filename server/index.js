@@ -32,10 +32,10 @@ app.get("/", async (req, res) => {
   res.send(result.rows);
 });
 app.get("/getnotes", async (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*"); // Temporarily allow all origins for testing
-  res.setHeader("Access-Control-Allow-Credentials", "true");
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  // res.setHeader("Access-Control-Allow-Origin", "*"); // Temporarily allow all origins for testing
+  // res.setHeader("Access-Control-Allow-Credentials", "true");
+  // res.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE");
+  // res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
   console.log("<------------------------>");
   console.log("Get route activated");
@@ -50,10 +50,10 @@ app.get("/getnotes", async (req, res) => {
 app.post("/addnote", async (req, res) => {
   console.log("<------------------------>");
   console.log("Post route activated");
-  res.setHeader("Access-Control-Allow-Origin", "*"); // Temporarily allow all origins for testing
-  res.setHeader("Access-Control-Allow-Credentials", "true");
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  // res.setHeader("Access-Control-Allow-Origin", "*"); // Temporarily allow all origins for testing
+  // res.setHeader("Access-Control-Allow-Credentials", "true");
+  // res.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE");
+  // res.setHeader("Access-Control-Allow-Headers", "Content-Type");
   const title = req.body.title;
   const content = req.body.content;
 
@@ -71,10 +71,10 @@ app.post("/addnote", async (req, res) => {
 });
 
 app.delete("/deletenote/:id", async (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*"); // Temporarily allow all origins for testing
-  res.setHeader("Access-Control-Allow-Credentials", "true");
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  // res.setHeader("Access-Control-Allow-Origin", "*"); // Temporarily allow all origins for testing
+  // res.setHeader("Access-Control-Allow-Credentials", "true");
+  // res.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE");
+  // res.setHeader("Access-Control-Allow-Headers", "Content-Type");
   console.log("<------------------------>");
   console.log("Delete route activated");
   const id = parseInt(req.params.id);

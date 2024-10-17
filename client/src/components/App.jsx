@@ -110,7 +110,7 @@ function App() {
       //   .catch(function (e) {
       //     console.log(e);
       //   });
-      axios.delete(`deletenote/${id}`).then((res) => {
+      axios.delete(`/deletenote/${id}`).then((res) => {
         console.log(res);
         console.log(res.data);
       });
