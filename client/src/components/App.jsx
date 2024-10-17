@@ -9,32 +9,70 @@ function App() {
   const [notes, setNotes] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("https://pern-note-i7p49n3no-devins-projects-c76af60f.vercel.app/")
-      .then((res) => res.data)
-      .then((data) => {
-        setNotes(data);
-        console.log("Notes loaded from database: " + data);
+    const testURL =
+      "https://pern-note-i7p49n3no-devins-projects-c76af60f.vercel.app/";
+    const myInit = {
+      method: "GET",
+      mode: "no-cors",
+    };
+
+    const myRequest = new Request(testURL, myInit);
+
+    fetch(myRequest)
+      .then(function (response) {
+        return response;
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (e) {
+        console.log(e);
       });
+    // axios
+    //   .get("https://pern-note-i7p49n3no-devins-projects-c76af60f.vercel.app/")
+    //   .then((res) => res.data)
+    //   .then((data) => {
+    //     setNotes(data);
+    //     console.log("Notes loaded from database: " + data);
+    //   });
   }, []);
 
   const handleAddItem = async (newNote) => {
     console.log("Adding note.. " + newNote);
     let id;
     try {
-      await axios
-        .post(
-          "https://pern-note-i7p49n3no-devins-projects-c76af60f.vercel.app/addnote",
-          {
-            title: newNote.title,
-            content: newNote.content,
-          }
-        )
-        .then((res) => {
-          console.log(res);
-          // console.log(res.data);
-          id = res.data;
+      const testURL =
+        "https://pern-note-i7p49n3no-devins-projects-c76af60f.vercel.app/addnote";
+      const myInit = {
+        method: "POST",
+        mode: "no-cors",
+      };
+
+      const myRequest = new Request(testURL, myInit);
+
+      fetch(myRequest)
+        .then(function (response) {
+          return response;
+        })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (e) {
+          console.log(e);
         });
+      // await axios
+      // .post(
+      //   "https://pern-note-i7p49n3no-devins-projects-c76af60f.vercel.app/addnote",
+      //   {
+      //     title: newNote.title,
+      //     content: newNote.content,
+      //   }
+      // )
+      // .then((res) => {
+      //   console.log(res);
+      //   // console.log(res.data);
+      //   id = res.data;
+      // });
     } catch (error) {
       console.error("Error adding item:", error);
     }
@@ -54,14 +92,32 @@ function App() {
     console.log("Deleting note with id: " + id);
 
     try {
-      axios
-        .delete(
-          `https://pern-note-i7p49n3no-devins-projects-c76af60f.vercel.app/deletenote/${id}`
-        )
-        .then((res) => {
-          console.log(res);
-          console.log(res.data);
+      const testURL = `https://pern-note-i7p49n3no-devins-projects-c76af60f.vercel.app/deletenote/${id}`;
+      const myInit = {
+        method: "DELETE",
+        mode: "no-cors",
+      };
+
+      const myRequest = new Request(testURL, myInit);
+
+      fetch(myRequest)
+        .then(function (response) {
+          return response;
+        })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (e) {
+          console.log(e);
         });
+      // axios
+      //   .delete(
+      //     `https://pern-note-i7p49n3no-devins-projects-c76af60f.vercel.app/deletenote/${id}`
+      //   )
+      //   .then((res) => {
+      //     console.log(res);
+      //     console.log(res.data);
+      //   });
     } catch (error) {}
     setNotes((prevNotes) => {
       return prevNotes.filter((noteItem, index) => {

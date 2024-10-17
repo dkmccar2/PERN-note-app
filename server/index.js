@@ -17,7 +17,7 @@ const corsOptions = {
 const app = express();
 const port = process.env.PORT;
 
-app.use(cors(corsOptions)); //middleware
+//app.use(cors(corsOptions)); //middleware
 app.use(express.json());
 app.get("/", async (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*"); // Temporarily allow all origins for testing
