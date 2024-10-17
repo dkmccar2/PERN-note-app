@@ -8,7 +8,7 @@ env.config();
 
 //const pool = require("./database.js");
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: "*",
   methods: ["POST", "GET", "DELETE"],
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
@@ -22,7 +22,7 @@ app.use(express.json());
 app.get("/", async (req, res) => {
   res.send("Server Running");
 });
-app.get("/getnotes", async (req, res) => {
+app.get("/api/getnotes", async (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Credentials", "true");
   res.setHeader("Access-Control-Max-Age", "1800");
@@ -42,7 +42,7 @@ app.get("/getnotes", async (req, res) => {
   res.send(result.rows);
 });
 
-app.post("/addnote", async (req, res) => {
+app.post("/api/addnote", async (req, res) => {
   console.log("<------------------------>");
   console.log("Post route activated");
 
@@ -62,7 +62,7 @@ app.post("/addnote", async (req, res) => {
   res.json(idReturn);
 });
 
-app.delete("/deletenote/:id", async (req, res) => {
+app.delete("/api/deletenote/:id", async (req, res) => {
   console.log("<------------------------>");
   console.log("Delete route activated");
   const id = parseInt(req.params.id);
