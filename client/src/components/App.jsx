@@ -118,7 +118,7 @@ function App() {
       //   console.log(res);
       //   console.log(res.data);
       // });
-      await axios.delete("/deletenote", { data: { id: id } }).then((res) => {
+      await axios.delete("/deletenote", { data: { id } }).then((res) => {
         console.log(res);
         console.log(res.data);
       });
