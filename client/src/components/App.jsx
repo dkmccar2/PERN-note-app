@@ -9,8 +9,7 @@ function App() {
   const [notes, setNotes] = useState([]);
 
   useEffect(() => {
-    const testURL =
-      "https://pern-note-i7p49n3no-devins-projects-c76af60f.vercel.app/";
+    const testURL = "/";
     const myInit = {
       method: "GET",
       mode: "no-cors",
@@ -18,31 +17,35 @@ function App() {
 
     const myRequest = new Request(testURL, myInit);
 
-    fetch(myRequest)
-      .then(function (response) {
-        return response;
-      })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (e) {
-        console.log(e);
-      });
-    // axios
-    //   .get("https://pern-note-i7p49n3no-devins-projects-c76af60f.vercel.app/")
-    //   .then((res) => res.data)
-    //   .then((data) => {
-    //     setNotes(data);
-    //     console.log("Notes loaded from database: " + data);
+    // fetch(myRequest)
+    //   .then((response) => {
+    //     //  console.log(response);
+    //     // console.log(response.data);
+    //     return response;
+    //   })
+    //   .then(function (response) {
+    //     console.log(response);
+    //   })
+    //   .catch(function (e) {
+    //     console.log(e);
     //   });
+    axios
+      .get("/")
+      .then((res) => {
+        console.log(res);
+        return res.data;
+      })
+      .then((data) => {
+        setNotes(data);
+        console.log("Notes loaded from database: " + data);
+      });
   }, []);
 
   const handleAddItem = async (newNote) => {
     console.log("Adding note.. " + newNote);
     let id;
     try {
-      const testURL =
-        "https://pern-note-i7p49n3no-devins-projects-c76af60f.vercel.app/addnote";
+      const testURL = "/addnote";
       const myInit = {
         method: "POST",
         mode: "no-cors",
@@ -92,7 +95,7 @@ function App() {
     console.log("Deleting note with id: " + id);
 
     try {
-      const testURL = `https://pern-note-i7p49n3no-devins-projects-c76af60f.vercel.app/deletenote/${id}`;
+      const testURL = `deletenote/${id}`;
       const myInit = {
         method: "DELETE",
         mode: "no-cors",
