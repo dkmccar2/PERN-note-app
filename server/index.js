@@ -8,7 +8,7 @@ env.config();
 
 //const pool = require("./database.js");
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: "https://pern-note-8yuurt67b-devins-projects-c76af60f.vercel.app/",
   methods: ["POST", "GET", "DELETE"],
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
