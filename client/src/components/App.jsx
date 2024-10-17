@@ -30,7 +30,7 @@ function App() {
     //     console.log(e);
     //   });
     axios
-      .get("/getnotes")
+      .get("https://pern-note-app.vercel.app/getnotes")
       .then((res) => {
         console.log(res);
         return res.data;
