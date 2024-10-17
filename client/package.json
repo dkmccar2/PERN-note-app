@@ -2,7 +2,8 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy":"https://pern-note-app-devins-projects-c76af60f.vercel.app/",
+  "homepage": ".",
+  "proxy": "https://pern-note-app-devins-projects-c76af60f.vercel.app/",
   "dependencies": {
     "@emotion/react": "11.13.3",
     "@emotion/styled": "11.13.0",
