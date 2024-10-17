@@ -2,9 +2,9 @@
   "version": 2,
   "builds": [{ "src": "*.js", "use": "@vercel/node" }],
   "routes": [
-    { "src": "/api/getnotes", "dest": "/getnotes" },
-    { "src": "/api/addnote", "dest": "/addnote" },
-    { "src": "/api/deletenote/(.*)", "dest": "/deletenote/$1" },
+    { "src": "/getnotes", "dest": "/getnotes" },
+    { "src": "/addnote", "dest": "/addnote" },
+    { "src": "/deletenote/(.*)", "dest": "/deletenote/$1" },
     { "src": "/(.*)", "dest": "/" }
   ]
 }

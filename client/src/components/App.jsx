@@ -11,7 +11,7 @@ function App() {
   useEffect(() => {
     axios
       .get(
-        "https://pern-note-i7p49n3no-devins-projects-c76af60f.vercel.app/api/getnotes"
+        "https://pern-note-i7p49n3no-devins-projects-c76af60f.vercel.app/getnotes"
       )
       .then((res) => res.data)
       .then((data) => {
@@ -26,7 +26,7 @@ function App() {
     try {
       await axios
         .post(
-          "https://pern-note-i7p49n3no-devins-projects-c76af60f.vercel.app/api/addnote",
+          "https://pern-note-i7p49n3no-devins-projects-c76af60f.vercel.app/addnote",
           {
             title: newNote.title,
             content: newNote.content,
@@ -58,7 +58,7 @@ function App() {
     try {
       axios
         .delete(
-          `https://pern-note-i7p49n3no-devins-projects-c76af60f.vercel.app/api/deletenote/${id}`
+          `https://pern-note-i7p49n3no-devins-projects-c76af60f.vercel.app/deletenote/${id}`
         )
         .then((res) => {
           console.log(res);
