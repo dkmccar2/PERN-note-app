@@ -20,23 +20,14 @@ const port = process.env.PORT;
 //app.use(cors(corsOptions)); //middleware
 app.use(express.json());
 app.get("/", async (req, res) => {
-  // res.setHeader("Access-Control-Allow-Origin", "*"); // Temporarily allow all origins for testing
-  // res.setHeader("Access-Control-Allow-Credentials", "true");
-  // res.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE");
-  // res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-  // res.send("Server Running");
   const result = await pool.query("SELECT * FROM notes");
   if (result) {
     console.log("Existing notes loaded from db");
   }
   res.send(result.rows);
 });
-app.get("/getnotes", async (req, res) => {
-  // res.setHeader("Access-Control-Allow-Origin", "*"); // Temporarily allow all origins for testing
-  // res.setHeader("Access-Control-Allow-Credentials", "true");
-  // res.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE");
-  // res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
+app.get("/getnotes", async (req, res) => {
   console.log("<------------------------>");
   console.log("Get route activated");
 
@@ -50,10 +41,7 @@ app.get("/getnotes", async (req, res) => {
 app.post("/addnote", async (req, res) => {
   console.log("<------------------------>");
   console.log("Post route activated");
-  // res.setHeader("Access-Control-Allow-Origin", "*"); // Temporarily allow all origins for testing
-  // res.setHeader("Access-Control-Allow-Credentials", "true");
-  // res.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE");
-  // res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
   const title = req.body.title;
   const content = req.body.content;
 
@@ -71,23 +59,16 @@ app.post("/addnote", async (req, res) => {
 });
 
 app.delete("/deletenote", async (req, res) => {
-  // res.setHeader("Access-Control-Allow-Origin", "*"); // Temporarily allow all origins for testing
-  // res.setHeader("Access-Control-Allow-Credentials", "true");
-  // res.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE");
-  // res.setHeader("Access-Control-Allow-Headers", "Content-Type");
   console.log("<------------------------>");
   console.log("Delete route activated");
-  //const id = parseInt(req.params.id);
-  //const data = req.body.data.id;
-  console.log(req.body);
-  //console.log("Deleting note with id: " + req.body.data);
   const id = req.body.deleteid;
+
   const result = await pool.query(`DELETE FROM notes WHERE id = $1`, [id]);
   console.log(result);
   if (result) {
     console.log("Note successfully deleted");
   }
-  res.json({ message: "Data received successfully", data });
+  res.json({ message: "Note Successfully Deleted with id: ", id });
 });
 
 app.listen(port, () => {

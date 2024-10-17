@@ -9,13 +9,13 @@ function App() {
   const [notes, setNotes] = useState([]);
 
   useEffect(() => {
-    const testURL = "/getnotes";
-    const myInit = {
-      method: "GET",
-      mode: "no-cors",
-    };
+    // const testURL = "/getnotes";
+    // const myInit = {
+    //   method: "GET",
+    //   mode: "no-cors",
+    // };
 
-    const myRequest = new Request(testURL, myInit);
+    // const myRequest = new Request(testURL, myInit);
 
     // fetch(myRequest)
     //   .then((response) => {
@@ -44,14 +44,15 @@ function App() {
   const handleAddItem = async (newNote) => {
     console.log("Adding note.. " + newNote);
     let id;
-    try {
-      const testURL = "/addnote";
-      const myInit = {
-        method: "POST",
-        mode: "no-cors",
-      };
 
-      const myRequest = new Request(testURL, myInit);
+    try {
+      // const testURL = "/addnote";
+      // const myInit = {
+      //   method: "POST",
+      //   mode: "no-cors",
+      // };
+
+      // const myRequest = new Request(testURL, myInit);
 
       // fetch(myRequest)
       //   .then(function (response) {
@@ -70,7 +71,7 @@ function App() {
         })
         .then((res) => {
           console.log(res);
-          // console.log(res.data);
+          console.log("New note added with id: " + res.data);
           id = res.data;
         });
     } catch (error) {
@@ -93,7 +94,7 @@ function App() {
   };
 
   const handleDeleteItem = async (id) => {
-    //console.log("Deleting note with id: " + id);
+    console.log("Deleting note with id: " + id);
 
     try {
       // const testURL = `deletenote/${id}`;
