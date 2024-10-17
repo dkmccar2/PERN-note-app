@@ -81,8 +81,8 @@ app.delete("/deletenote", async (req, res) => {
   //const data = req.body.data.id;
   console.log(req.body);
   //console.log("Deleting note with id: " + req.body.data);
-  // const id = req.body.data;
-  // const result = await pool.query(`DELETE FROM notes WHERE id = $1`, [id]);
+  const id = req.body.deleteid;
+  const result = await pool.query(`DELETE FROM notes WHERE id = $1`, [id]);
   console.log(result);
   if (result) {
     console.log("Note successfully deleted");
