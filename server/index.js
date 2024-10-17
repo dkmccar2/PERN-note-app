@@ -20,7 +20,12 @@ const port = process.env.PORT;
 app.use(cors(corsOptions)); //middleware
 app.use(express.json());
 app.get("/", async (req, res) => {
-  res.send("Server Running");
+  // res.send("Server Running");
+  const result = await pool.query("SELECT * FROM notes");
+  if (result) {
+    console.log("Existing notes loaded from db");
+  }
+  res.send(result.rows);
 });
 app.get("/getnotes", async (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*"); // Temporarily allow all origins for testing

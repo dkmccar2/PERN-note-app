@@ -10,9 +10,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get(
-        "https://pern-note-i7p49n3no-devins-projects-c76af60f.vercel.app/getnotes"
-      )
+      .get("https://pern-note-i7p49n3no-devins-projects-c76af60f.vercel.app/")
       .then((res) => res.data)
       .then((data) => {
         setNotes(data);
