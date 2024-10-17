@@ -85,20 +85,24 @@ function App() {
           { id: id, title: newNote.title, content: newNote.content },
         ];
       });
+    } else {
+      setNotes((prevNotes) => {
+        return [...prevNotes, newNote];
+      });
     }
   };
 
-  const handleDeleteItem = (id) => {
-    console.log("Deleting note with id: " + id);
+  const handleDeleteItem = async (id) => {
+    //console.log("Deleting note with id: " + id);
 
     try {
-      const testURL = `deletenote/${id}`;
-      const myInit = {
-        method: "DELETE",
-        mode: "no-cors",
-      };
+      // const testURL = `deletenote/${id}`;
+      // const myInit = {
+      //   method: "DELETE",
+      //   mode: "no-cors",
+      // };
 
-      const myRequest = new Request(testURL, myInit);
+      // const myRequest = new Request(testURL, myInit);
 
       // fetch(myRequest)
       //   .then(function (response) {
@@ -110,7 +114,7 @@ function App() {
       //   .catch(function (e) {
       //     console.log(e);
       //   });
-      axios.delete(`/deletenote/${id}`).then((res) => {
+      await axios.delete(`/api/deletenote/${id}`).then((res) => {
         console.log(res);
         console.log(res.data);
       });
