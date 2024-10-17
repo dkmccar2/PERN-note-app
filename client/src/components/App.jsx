@@ -9,36 +9,36 @@ function App() {
   const [notes, setNotes] = useState([]);
 
   useEffect(() => {
-    // const testURL = "/getnotes";
-    // const myInit = {
-    //   method: "GET",
-    //   mode: "no-cors",
-    // };
+    const testURL = "/getnotes";
+    const myInit = {
+      method: "GET",
+      mode: "no-cors",
+    };
 
-    // const myRequest = new Request(testURL, myInit);
+    const myRequest = new Request(testURL, myInit);
 
-    // fetch(myRequest)
-    //   .then((response) => {
-    //     //  console.log(response);
-    //     // console.log(response.data);
-    //     return response;
-    //   })
-    //   .then(function (response) {
-    //     console.log(response);
-    //   })
-    //   .catch(function (e) {
-    //     console.log(e);
-    //   });
-    axios
-      .get("https://pern-note-app.vercel.app/getnotes")
-      .then((res) => {
-        console.log(res);
-        return res.data;
+    fetch(myRequest)
+      .then((response) => {
+        //  console.log(response);
+        // console.log(response.data);
+        return response;
       })
-      .then((data) => {
-        setNotes(data);
-        console.log("Notes loaded from database: " + data);
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (e) {
+        console.log(e);
       });
+    // axios
+    //   .get("https://pern-note-app.vercel.app/getnotes")
+    //   .then((res) => {
+    //     console.log(res);
+    //     return res.data;
+    //   })
+    //   .then((data) => {
+    //     setNotes(data);
+    //     console.log("Notes loaded from database: " + data);
+    //   });
   }, []);
 
   const handleAddItem = async (newNote) => {
