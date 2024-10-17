@@ -1,10 +1,19 @@
 {
   "version": 2,
-  "builds": [{ "src": "*.js", "use": "@vercel/node" }],
+  "builds": [
+    {
+      "src": "./index.js",
+      "use": "@vercel/node"
+    }
+  ],
   "routes": [
-    { "src": "/api/getnotes", "dest": "/getnotes" },
-    { "src": "/api/addnote", "dest": "/addnote" },
-    { "src": "/api/deletenote/(.*)", "dest": "/deletenote/$1" },
-    { "src": "/(.*)", "dest": "/" }
+    {
+      "src": "/(.*)",
+      "dest": "./index.js",
+      "methods": ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+      "headers": {
+        "Access-Control-Allow-Origin": "*"
+      }
+    }
   ]
 }
