@@ -21,10 +21,11 @@ function App() {
       .then((response) => {
         //  console.log(response);
         // console.log(response.data);
-        return response;
+        return response.data;
       })
-      .then(function (response) {
-        console.log(response);
+      .then(function (data) {
+        console.log(data);
+        setNotes(data);
       })
       .catch(function (e) {
         console.log(e);
