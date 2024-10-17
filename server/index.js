@@ -19,13 +19,13 @@ const port = process.env.PORT;
 
 //app.use(cors(corsOptions)); //middleware
 app.use(express.json());
-app.get("/", async (req, res) => {
-  const result = await pool.query("SELECT * FROM notes");
-  if (result) {
-    console.log("Existing notes loaded from db");
-  }
-  res.send(result.rows);
-});
+// app.get("/", async (req, res) => {
+//   const result = await pool.query("SELECT * FROM notes");
+//   if (result) {
+//     console.log("Existing notes loaded from db");
+//   }
+//   res.send(result.rows);
+// });
 
 app.get("/getnotes", async (req, res) => {
   console.log("<------------------------>");
