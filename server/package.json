@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "type": "module",
-  "proxy": "https://www.pern-note-8yuurt67b-devins-projects-c76af60f.vercel.app",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server",
