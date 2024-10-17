@@ -20,11 +20,11 @@ const port = process.env.PORT;
 //app.use(cors(corsOptions)); //middleware
 app.use(express.json());
 app.get("/", async (req, res) => {
-  const result = await pool.query("SELECT * FROM notes");
-  if (result) {
-    console.log("Existing notes loaded from db");
-  }
-  res.send(result.rows);
+  // const result = await pool.query("SELECT * FROM notes");
+  // if (result) {
+  //   console.log("Existing notes loaded from db");
+  // }
+  res.send("server running");
 });
 
 app.get("/getnotes", async (req, res) => {
@@ -35,7 +35,7 @@ app.get("/getnotes", async (req, res) => {
   if (result) {
     console.log("Existing notes loaded from db");
   }
-  res.json(result);
+  res.json(result.rows);
 });
 
 app.post("/addnote", async (req, res) => {
