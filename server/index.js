@@ -78,8 +78,8 @@ app.delete("/deletenote", async (req, res) => {
   console.log("<------------------------>");
   console.log("Delete route activated");
   const id = parseInt(req.params.id);
-  const data = req.body;
-
+  const data = req.body.data.id;
+  console.log(data);
   console.log("Deleting note with id: " + id);
 
   const result = await pool.query(`DELETE FROM notes WHERE id = $1`, [id]);
