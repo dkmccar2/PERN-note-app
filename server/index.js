@@ -77,9 +77,9 @@ app.delete("/deletenote", async (req, res) => {
   // res.setHeader("Access-Control-Allow-Headers", "Content-Type");
   console.log("<------------------------>");
   console.log("Delete route activated");
-  const id = parseInt(req.params.id);
-  const data = req.body.data.id;
-  console.log(data);
+  //const id = parseInt(req.params.id);
+  //const data = req.body.data.id;
+  console.log(req);
   console.log("Deleting note with id: " + id);
 
   const result = await pool.query(`DELETE FROM notes WHERE id = $1`, [id]);
