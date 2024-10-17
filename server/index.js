@@ -70,7 +70,7 @@ app.post("/addnote", async (req, res) => {
   res.json(idReturn);
 });
 
-app.delete("/deletenote/:id", async (req, res) => {
+app.delete("/deletenote", async (req, res) => {
   // res.setHeader("Access-Control-Allow-Origin", "*"); // Temporarily allow all origins for testing
   // res.setHeader("Access-Control-Allow-Credentials", "true");
   // res.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE");
