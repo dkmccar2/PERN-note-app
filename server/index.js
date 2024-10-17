@@ -35,7 +35,7 @@ app.get("/getnotes", async (req, res) => {
   if (result) {
     console.log("Existing notes loaded from db");
   }
-  res.json(result.rows);
+  res.json(result);
 });
 
 app.post("/addnote", async (req, res) => {
