@@ -9,7 +9,7 @@ function App() {
   const [notes, setNotes] = useState([]);
 
   useEffect(() => {
-    const testURL = "/";
+    const testURL = "/getnotes";
     const myInit = {
       method: "GET",
       mode: "no-cors",
@@ -30,7 +30,7 @@ function App() {
     //     console.log(e);
     //   });
     axios
-      .get("/")
+      .get("/getnotes")
       .then((res) => {
         console.log(res);
         return res.data;
@@ -53,29 +53,26 @@ function App() {
 
       const myRequest = new Request(testURL, myInit);
 
-      fetch(myRequest)
-        .then(function (response) {
-          return response;
+      // fetch(myRequest)
+      //   .then(function (response) {
+      //     return response;
+      //   })
+      //   .then(function (response) {
+      //     console.log(response);
+      //   })
+      //   .catch(function (e) {
+      //     console.log(e);
+      //   });
+      await axios
+        .post("/addnote", {
+          title: newNote.title,
+          content: newNote.content,
         })
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (e) {
-          console.log(e);
+        .then((res) => {
+          console.log(res);
+          // console.log(res.data);
+          id = res.data;
         });
-      // await axios
-      // .post(
-      //   "https://pern-note-i7p49n3no-devins-projects-c76af60f.vercel.app/addnote",
-      //   {
-      //     title: newNote.title,
-      //     content: newNote.content,
-      //   }
-      // )
-      // .then((res) => {
-      //   console.log(res);
-      //   // console.log(res.data);
-      //   id = res.data;
-      // });
     } catch (error) {
       console.error("Error adding item:", error);
     }
@@ -103,24 +100,20 @@ function App() {
 
       const myRequest = new Request(testURL, myInit);
 
-      fetch(myRequest)
-        .then(function (response) {
-          return response;
-        })
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (e) {
-          console.log(e);
-        });
-      // axios
-      //   .delete(
-      //     `https://pern-note-i7p49n3no-devins-projects-c76af60f.vercel.app/deletenote/${id}`
-      //   )
-      //   .then((res) => {
-      //     console.log(res);
-      //     console.log(res.data);
+      // fetch(myRequest)
+      //   .then(function (response) {
+      //     return response;
+      //   })
+      //   .then(function (response) {
+      //     console.log(response);
+      //   })
+      //   .catch(function (e) {
+      //     console.log(e);
       //   });
+      axios.delete(`deletenote/${id}`).then((res) => {
+        console.log(res);
+        console.log(res.data);
+      });
     } catch (error) {}
     setNotes((prevNotes) => {
       return prevNotes.filter((noteItem, index) => {
