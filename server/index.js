@@ -8,7 +8,7 @@ env.config();
 
 //const pool = require("./database.js");
 const corsOptions = {
-  origin: "https://pern-note-8yuurt67b-devins-projects-c76af60f.vercel.app/",
+  origin: "http://localhost:3000",
   methods: ["POST", "GET", "DELETE"],
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
@@ -23,14 +23,14 @@ app.get("/", async (req, res) => {
   res.send("Server Running");
 });
 app.get("/getnotes", async (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Credentials", "true");
-  res.setHeader("Access-Control-Max-Age", "1800");
-  res.setHeader("Access-Control-Allow-Headers", "content-type");
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "PUT, POST, GET, DELETE, PATCH, OPTIONS"
-  );
+  // res.setHeader("Access-Control-Allow-Origin", "*");
+  // res.setHeader("Access-Control-Allow-Credentials", "true");
+  // res.setHeader("Access-Control-Max-Age", "1800");
+  // res.setHeader("Access-Control-Allow-Headers", "content-type");
+  // res.setHeader(
+  //   "Access-Control-Allow-Methods",
+  //   "PUT, POST, GET, DELETE, PATCH, OPTIONS"
+  // );
 
   console.log("<------------------------>");
   console.log("Get route activated");
