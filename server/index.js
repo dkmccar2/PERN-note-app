@@ -79,10 +79,10 @@ app.delete("/deletenote", async (req, res) => {
   console.log("Delete route activated");
   //const id = parseInt(req.params.id);
   //const data = req.body.data.id;
-  console.log(req);
-  console.log("Deleting note with id: " + id);
-
-  const result = await pool.query(`DELETE FROM notes WHERE id = $1`, [id]);
+  console.log(req.body);
+  //console.log("Deleting note with id: " + req.body.data);
+  // const id = req.body.data;
+  // const result = await pool.query(`DELETE FROM notes WHERE id = $1`, [id]);
   console.log(result);
   if (result) {
     console.log("Note successfully deleted");

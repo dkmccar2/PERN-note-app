@@ -118,10 +118,12 @@ function App() {
       //   console.log(res);
       //   console.log(res.data);
       // });
-      await axios.delete("/deletenote", { data: { id } }).then((res) => {
-        console.log(res);
-        console.log(res.data);
-      });
+      await axios
+        .delete("/deletenote", { data: { deleteid: id } })
+        .then((res) => {
+          console.log(res);
+          console.log(res.data);
+        });
     } catch (error) {}
     setNotes((prevNotes) => {
       return prevNotes.filter((noteItem, index) => {
