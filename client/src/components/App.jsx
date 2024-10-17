@@ -114,7 +114,11 @@ function App() {
       //   .catch(function (e) {
       //     console.log(e);
       //   });
-      await axios.delete(`/api/deletenote/${id}`).then((res) => {
+      // await axios.delete(`/deletenote/$1`, [id]).then((res) => {
+      //   console.log(res);
+      //   console.log(res.data);
+      // });
+      await axios.delete("/deletenote", { data: { id: id } }).then((res) => {
         console.log(res);
         console.log(res.data);
       });
