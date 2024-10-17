@@ -22,7 +22,7 @@ app.use(express.json());
 app.get("/", async (req, res) => {
   res.send("Server Running");
 });
-app.get("/api/getnotes", async (req, res) => {
+app.get("/getnotes", async (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*"); // Temporarily allow all origins for testing
   res.setHeader("Access-Control-Allow-Credentials", "true");
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE");
@@ -38,7 +38,7 @@ app.get("/api/getnotes", async (req, res) => {
   res.send(result.rows);
 });
 
-app.post("/api/addnote", async (req, res) => {
+app.post("/addnote", async (req, res) => {
   console.log("<------------------------>");
   console.log("Post route activated");
   res.setHeader("Access-Control-Allow-Origin", "*"); // Temporarily allow all origins for testing
@@ -61,7 +61,7 @@ app.post("/api/addnote", async (req, res) => {
   res.json(idReturn);
 });
 
-app.delete("/api/deletenote/:id", async (req, res) => {
+app.delete("/deletenote/:id", async (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*"); // Temporarily allow all origins for testing
   res.setHeader("Access-Control-Allow-Credentials", "true");
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE");
