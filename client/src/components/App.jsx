@@ -66,7 +66,7 @@ function App() {
       //     console.log(e);
       //   });
       await axios
-        .post("/addnote", {
+        .post("https://pern-note-app.vercel.app/addnote", {
           title: newNote.title,
           content: newNote.content,
         })
@@ -121,7 +121,9 @@ function App() {
       //   console.log(res.data);
       // });
       await axios
-        .delete("/deletenote", { data: { deleteid: id } })
+        .delete("https://pern-note-app.vercel.app/deletenote", {
+          data: { deleteid: id },
+        })
         .then((res) => {
           console.log(res);
           console.log(res.data);
