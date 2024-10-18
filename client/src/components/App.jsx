@@ -20,7 +20,7 @@ function App() {
     fetch(myRequest)
       .then((response) => {
         //  console.log(response);
-        // console.log(response.data);
+        console.log(response.json());
         return response.data;
       })
       .then(function (data) {
