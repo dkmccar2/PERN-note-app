@@ -6,19 +6,19 @@ import pool from "./database.js";
 
 env.config();
 
-//const pool = require("./database.js");
-const corsOptions = {
-  origin: "*",
-  methods: ["POST", "GET", "DELETE"],
-  credentials: true, //access-control-allow-credentials:true
-  optionSuccessStatus: 200,
-};
+// const corsOptions = {
+//   origin: "*",
+//   methods: ["POST", "GET", "DELETE"],
+//   credentials: true, //access-control-allow-credentials:true
+//   optionSuccessStatus: 200,
+// };
 
 const app = express();
 const port = process.env.PORT;
 
 //app.use(cors(corsOptions)); //middleware
 app.use(express.json());
+
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
@@ -28,11 +28,8 @@ app.use((req, res, next) => {
   );
   next();
 });
+
 app.get("/", async (req, res) => {
-  // const result = await pool.query("SELECT * FROM notes");
-  // if (result) {
-  //   console.log("Existing notes loaded from db");
-  // }
   res.send("server running");
 });
 
