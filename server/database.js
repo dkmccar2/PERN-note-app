@@ -15,14 +15,7 @@ env.config();
 const pool = new Pool({
   connectionString: process.env.POSTGRES_URL,
 });
-// const pool = new Pool({
-//     //env variables
-//     user: process.env.PG_USER,
-//     host: process.env.PG_HOST,
-//     database: process.env.PG_DATABASE,
-//     password: process.env.PG_PASSWORD,
-//     port: process.env.PG_PORT,
-//   });
+
 pool.connect((err) => {
   if (err) throw err;
   console.log("Connection to PostgreSQL Successful");

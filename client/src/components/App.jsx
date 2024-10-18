@@ -9,27 +9,6 @@ function App() {
   const [notes, setNotes] = useState([]);
 
   useEffect(() => {
-    const testURL = "/getnotes";
-    const myInit = {
-      method: "GET",
-      mode: "no-cors",
-    };
-
-    const myRequest = new Request(testURL, myInit);
-
-    // fetch(myRequest)
-    //   .then((response) => {
-    //     //  console.log(response);
-    //     console.log(response.json());
-    //     return response.data;
-    //   })
-    //   .then(function (data) {
-    //     console.log(data);
-    //     setNotes(data);
-    //   })
-    //   .catch(function (e) {
-    //     console.log(e);
-    //   });
     axios
       .get("https://pern-note-app.vercel.app/getnotes")
       .then((res) => {
@@ -47,24 +26,6 @@ function App() {
     let id;
 
     try {
-      // const testURL = "/addnote";
-      // const myInit = {
-      //   method: "POST",
-      //   mode: "no-cors",
-      // };
-
-      // const myRequest = new Request(testURL, myInit);
-
-      // fetch(myRequest)
-      //   .then(function (response) {
-      //     return response;
-      //   })
-      //   .then(function (response) {
-      //     console.log(response);
-      //   })
-      //   .catch(function (e) {
-      //     console.log(e);
-      //   });
       await axios
         .post("https://pern-note-app.vercel.app/addnote", {
           title: newNote.title,
@@ -98,28 +59,6 @@ function App() {
     console.log("Deleting note with id: " + id);
 
     try {
-      // const testURL = `deletenote/${id}`;
-      // const myInit = {
-      //   method: "DELETE",
-      //   mode: "no-cors",
-      // };
-
-      // const myRequest = new Request(testURL, myInit);
-
-      // fetch(myRequest)
-      //   .then(function (response) {
-      //     return response;
-      //   })
-      //   .then(function (response) {
-      //     console.log(response);
-      //   })
-      //   .catch(function (e) {
-      //     console.log(e);
-      //   });
-      // await axios.delete(`/deletenote/$1`, [id]).then((res) => {
-      //   console.log(res);
-      //   console.log(res.data);
-      // });
       await axios
         .delete("https://pern-note-app.vercel.app/deletenote", {
           data: { deleteid: id },
@@ -135,34 +74,6 @@ function App() {
       });
     });
   };
-  // function addNote(newNote) {
-  //   // console.log(newNote);
-  //   try {
-  //     const response = async () => {
-  //       await fetch("http://localhost:4000/addnote", {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify(newNote),
-  //       });
-  //     };
-  //     //console.log(response);
-  //   } catch (error) {
-  //     console.error("Error adding item:", error);
-  //   }
-  //   setNotes((prevNotes) => {
-  //     return [...prevNotes, newNote];
-  //   });
-  // }
-
-  // function deleteNote(id) {
-  //   setNotes((prevNotes) => {
-  //     return prevNotes.filter((noteItem, index) => {
-  //       return index !== id;
-  //     });
-  //   });
-  // }
 
   return (
     <div>
