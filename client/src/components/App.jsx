@@ -17,29 +17,29 @@ function App() {
 
     const myRequest = new Request(testURL, myInit);
 
-    fetch(myRequest)
-      .then((response) => {
-        //  console.log(response);
-        console.log(response.json());
-        return response.data;
-      })
-      .then(function (data) {
-        console.log(data);
-        setNotes(data);
-      })
-      .catch(function (e) {
-        console.log(e);
-      });
-    // axios
-    //   .get("https://pern-note-app.vercel.app/getnotes")
-    //   .then((res) => {
-    //     console.log(res);
-    //     return res.data;
+    // fetch(myRequest)
+    //   .then((response) => {
+    //     //  console.log(response);
+    //     console.log(response.json());
+    //     return response.data;
     //   })
-    //   .then((data) => {
+    //   .then(function (data) {
+    //     console.log(data);
     //     setNotes(data);
-    //     console.log("Notes loaded from database: " + data);
+    //   })
+    //   .catch(function (e) {
+    //     console.log(e);
     //   });
+    axios
+      .get("https://pern-note-app.vercel.app/getnotes")
+      .then((res) => {
+        console.log(res);
+        return res.data;
+      })
+      .then((data) => {
+        setNotes(data);
+        console.log("Notes loaded from database: " + data);
+      });
   }, []);
 
   const handleAddItem = async (newNote) => {
