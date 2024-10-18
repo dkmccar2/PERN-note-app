@@ -7,11 +7,11 @@ html {
   font-family: "Montserrat", sans-serif;
 }
 body {
-  background: #eee;
+  background: #000000;
   padding: 0 16px;
   /* background-image: url("https://www.transparenttextures.com/patterns/black-thread-light.png"); */
   /* background-color: #10e4d9; */
-  background-image: url("https://www.transparenttextures.com/patterns/notebook.png");
+  background-image: url("https://www.transparenttextures.com/patterns/notebook-dark.png");
 }
 
 header {
